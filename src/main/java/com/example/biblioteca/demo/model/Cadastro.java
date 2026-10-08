@@ -18,4 +18,8 @@ public class Cadastro {
     private String nome;
     private String cpf;
 
+    @OneToOne
+    @JoinColumn(name = "cadastro_id", unique = true)
+    private Leitor leitor;
+
 }

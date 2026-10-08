@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Autor")
 @Getter
@@ -19,4 +21,11 @@ public class Autor {
     private String nome;
     private String nacionalidade;
 
+    @ManyToMany
+    @JoinTable(
+            name = "autor_livro",
+            joinColumns = @JoinColumn(name = "autor_id"),
+            inverseJoinColumns = @JoinColumn(name = "livro_id")
+    )
+    private List<Livro> livros;
 }
